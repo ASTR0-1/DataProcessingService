@@ -18,7 +18,9 @@ public class CsvDataReader : IDataReader
         int parsedLines = 0;
         int parsedErrors = 0;
 
-        using StreamReader reader = new StreamReader(File.OpenRead(path), Encoding.UTF8);
+        // Depending on this tests: https://cc.davelozinski.com/c-sharp/fastest-way-to-read-text-files
+        // It is the fastest way to read files
+        using StreamReader reader = File.OpenText(path);
 
         // Skip first line in CSV
         await reader.ReadLineAsync();
