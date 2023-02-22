@@ -23,7 +23,7 @@ public class TxtDataWriter : IDataWriter
 
         string jsonString = JsonSerializer.Serialize(parse.Payments, options);
 
-        using var writer = new StreamWriter(outputPath + $"/output{fileNumber}.json");
+        using var writer = new StreamWriter($"{outputPath}/output{fileNumber}.json");
 
         await writer.WriteAsync(jsonString);
     }
